@@ -5,6 +5,8 @@ import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
+lateinit var url : String
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             settings.domStorageEnabled = true
         }
 
-
-        webView.loadUrl("https://mportal.ajou.ac.kr")
+        url = "http://biz.ajou.ac.kr/ebiz"
+        webView.loadUrl(url)
     }
 }
