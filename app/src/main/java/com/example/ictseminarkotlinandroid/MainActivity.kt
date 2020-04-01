@@ -1,6 +1,7 @@
 package com.example.ictseminarkotlinandroid
 
 import android.os.Bundle
+import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -10,6 +11,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        webView.loadUrl("https://mportal.ajou.ac.kr/main.do")
+        webView.webViewClient = WebViewClient()
+
+        webView.apply {
+            settings.javaScriptEnabled = true
+            settings.setSupportMultipleWindows(false)
+            settings.javaScriptCanOpenWindowsAutomatically = false
+            settings.loadWithOverviewMode = true
+            settings.useWideViewPort = true
+            settings.setSupportZoom(false)
+            settings.builtInZoomControls = false
+            settings.domStorageEnabled = true
+        }
+
+
+        webView.loadUrl("https://mportal.ajou.ac.kr")
     }
 }
